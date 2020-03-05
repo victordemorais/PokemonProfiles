@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-
-const pokeList = () => {
-  return [];
-};
+import pokeReducer from './poke';
 
 export default combineReducers({
-  pokeList,
+  pokeReducer,
 });

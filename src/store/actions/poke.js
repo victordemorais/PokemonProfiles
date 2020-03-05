@@ -1,11 +1,15 @@
-export function updatePokesRequest() {
+export const REQUEST_LIST_POKES = 'REQUEST_LIST_POKES';
+export const SET_LIST_POKES = 'UPDATE_LIST_POKES';
+
+export function pokeRequestList() {
   return {
-    type: 'POKE/REQUEST_LIST_POKES',
+    type: REQUEST_LIST_POKES,
   };
 }
 
-export function updatePokesUpdateList() {
+export function setPokeList(payload) {
   return {
-    type: 'POKE/UPDATE_LIST_POKES',
+    type: SET_LIST_POKES,
+    payload,
   };
 }

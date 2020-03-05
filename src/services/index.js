@@ -2,6 +2,8 @@ import Axios from 'axios';
 
 const urlApi = 'https://pokeapi.co/api/v2/pokemon';
 
-Axios.create({
-  urlApi,
+const api = Axios.create({
+  baseURL: urlApi,
 });
+
+export default api;
