@@ -3,9 +3,10 @@ export const SET_LIST_POKES = 'UPDATE_LIST_POKES';
 export const SELECT_POKE = 'SELECT_POKE';
 export const SELECT_POKE_SUCCESS = 'SELECT_POKE_SUCCESS';
 
-export function pokeRequestList() {
+export function pokeRequestList(url) {
   return {
     type: REQUEST_LIST_POKES,
+    url,
   };
 }
 

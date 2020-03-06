@@ -17,6 +17,16 @@ class Home extends Component {
     selectedPoke(poke); //  poke selected in redux
   };
 
+  previousPage = () => {
+    const { loadPokes, pokeList } = this.props;
+    loadPokes(pokeList.previous); // Load Previous Page pokemons
+  };
+
+  nextPage = () => {
+    const { loadPokes, pokeList } = this.props;
+    loadPokes(pokeList.next); // Load Next Page pokemons
+  };
+
   render() {
     const { pokeList } = this.props;
     return (
@@ -28,7 +38,7 @@ class Home extends Component {
             </Typography>
             <Grid container spacing={3}>
               {pokeList &&
-                pokeList.map(poke => (
+                pokeList.allPokes.map(poke => (
                   <Grid key={poke.id} item xs={12} sm={4} md={3}>
                     <CardBox poke={poke} onClick={() => this.pressPoke(poke)} />
                   </Grid>
@@ -41,10 +51,20 @@ class Home extends Component {
               justify="flex-end"
               alignItems="center"
             >
-              <ButtonPaginate variant="contained" color="primary">
+              <ButtonPaginate
+                variant="contained"
+                color="primary"
+                onClick={this.previousPage}
+                disabled={!pokeList || !pokeList.previous}
+              >
                 Previous
               </ButtonPaginate>
-              <ButtonPaginate variant="contained" color="primary">
+              <ButtonPaginate
+                variant="contained"
+                color="primary"
+                onClick={this.nextPage}
+                disabled={!pokeList || !pokeList.next}
+              >
                 Next
               </ButtonPaginate>
             </Grid>
@@ -57,7 +77,7 @@ class Home extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadPokes: () => dispatch(pokeRequestList()),
+    loadPokes: url => dispatch(pokeRequestList(url)),
     selectedPoke: poke => dispatch(selectPoke(poke)),
   };
 };

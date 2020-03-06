@@ -45,7 +45,7 @@ export class Poke extends Component {
                 alignItems="center"
                 style={{ display: 'flex' }}
               >
-                <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png" />
+                <Image src={selected.sprites.front_default} />
               </Grid>
               <Grid md={6}>
                 {this.renderText('Name', selected.name)}

@@ -13,11 +13,16 @@ function* loadEachPokes(pokes) {
   return allPokes;
 }
 
-function* setPokesList() {
-  const response = yield call(api.get, urlApi);
+function* setPokesList({ url = urlApi }) {
+  const response = yield call(api.get, url);
   const allPokes = yield loadEachPokes(response.data.results);
+  const mountData = {
+    allPokes,
+    next: response.data.next,
+    previous: response.data.previous,
+  };
 
-  yield put(actionsPoke.setPokeList(allPokes));
+  yield put(actionsPoke.setPokeList(mountData));
 }
 
 function* selectPoke() {
