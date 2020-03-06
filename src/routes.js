@@ -1,15 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route, Router, BrowserRouter } from 'react-router-dom';
 import Home from './screens/Home';
-import List from './screens/List';
+import Poke from './screens/Poke';
+import history from './services/history';
 
 export default function Routes() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/ListPokes" component={List} />
-      </Switch>
+      <Router history={history}>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/poke" component={Poke} />
+        </Switch>
+      </Router>
     </BrowserRouter>
   );
 }

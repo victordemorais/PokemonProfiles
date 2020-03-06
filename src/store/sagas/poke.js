@@ -1,7 +1,7 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import * as actionsPoke from '../actions/poke';
 import api, { urlApi } from '../../services';
-// import configuration api
+import history from '../../services/history';
 
 function* loadEachPokes(pokes) {
   const allPokes = yield all(
@@ -22,6 +22,7 @@ function* setPokesList() {
 
 function* selectPoke() {
   yield put(actionsPoke.selectPokeSuccess());
+  history.push('/poke');
 }
 
 export default all([

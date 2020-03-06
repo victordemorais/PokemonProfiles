@@ -18,8 +18,7 @@ class Home extends Component {
   };
 
   render() {
-    const { pokeList, state } = this.props;
-    console.log(state);
+    const { pokeList } = this.props;
     return (
       <Page>
         <Content>
@@ -51,7 +50,6 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     pokeList: state.pokeReducer.pokeList,
-    state,
   };
 };
 
