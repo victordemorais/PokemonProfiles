@@ -1,8 +1,6 @@
-## ScreenShot
+## Pokemon List Profiles
 
 ![ScreenShot](screenshot.png)
-
-## Pokemon Profiles
 
 Para instação do projeto é necessário ter instalado Node e React.
 Instalações:
