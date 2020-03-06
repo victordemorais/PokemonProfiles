@@ -20,4 +20,11 @@ function* setPokesList() {
   yield put(actionsPoke.setPokeList(allPokes));
 }
 
-export default all([takeLatest(actionsPoke.REQUEST_LIST_POKES, setPokesList)]);
+function* selectPoke() {
+  yield put(actionsPoke.selectPokeSuccess());
+}
+
+export default all([
+  takeLatest(actionsPoke.REQUEST_LIST_POKES, setPokesList),
+  takeLatest(actionsPoke.SELECT_POKE, selectPoke),
+]);

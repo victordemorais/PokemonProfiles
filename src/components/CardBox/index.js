@@ -8,9 +8,9 @@ import {
 import { Image } from './styles';
 import { capitalize } from '../../handlers/formatter';
 
-const CardBox = ({ poke }) => {
+const CardBox = ({ poke, onClick }) => {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <CardActionArea>
         <Image image={poke.sprites.front_shiny} title="Contemplative Reptile" />
         <CardContent style={{ textAlign: 'center' }}>

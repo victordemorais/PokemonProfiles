@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { LoadingGif } from './styles';
 
 const Loading = ({ loading }) => {
-  if (loading) return <div style={{ marginTop: 120 }}>Carregando</div>;
+  if (loading) return <LoadingGif />;
   return <></>;
 };
 
@@ -10,6 +11,4 @@ const mapStateToProps = state => ({
   loading: state.pokeReducer.loading,
 });
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Loading);
+export default connect(mapStateToProps)(Loading);

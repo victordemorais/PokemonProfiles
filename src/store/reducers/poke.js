@@ -15,6 +15,17 @@ const pokeReducer = (state = initialState, action) => {
         loading: false,
         pokeList: action.payload,
       };
+    case actionsPoke.SELECT_POKE:
+      return {
+        ...state,
+        loading: true,
+        selected: action.payload,
+      };
+    case actionsPoke.SELECT_POKE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      };
     default:
       return state;
   }
