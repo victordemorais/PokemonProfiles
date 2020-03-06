@@ -1,4 +1,5 @@
 export const capitalize = value => {
+  console.log(value, 'o que ta vindo');
   if (!value) return '';
   return value
     .toLowerCase()

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Grid, Typography } from '@material-ui/core';
-import { Page } from './styles';
+import { Page, ButtonPaginate } from './styles';
 import { pokeRequestList, selectPoke } from '../../store/actions/poke';
 import { Content } from '../../styles/global';
 import CardBox from '../../components/CardBox';
@@ -33,6 +33,20 @@ class Home extends Component {
                     <CardBox poke={poke} onClick={() => this.pressPoke(poke)} />
                   </Grid>
                 ))}
+            </Grid>
+
+            <Grid
+              container
+              direction="row"
+              justify="flex-end"
+              alignItems="center"
+            >
+              <ButtonPaginate variant="contained" color="primary">
+                Previous
+              </ButtonPaginate>
+              <ButtonPaginate variant="contained" color="primary">
+                Next
+              </ButtonPaginate>
             </Grid>
           </Container>
         </Content>
