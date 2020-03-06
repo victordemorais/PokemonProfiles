@@ -17,6 +17,8 @@ Após a instalação dos pacotes executar o comando: `npm start` ou `yarn start`
 
 ## Sobre o Projeto
 
+![ScreenShot](screenshot.png)
+
 Projeto desenvolvido para processo seletivo em uma empresa sensacional `Arizona | Visto`.
 Utilizando [PokeApi](https://pokeapi.co/api/v2/) para listagem das informações.
 
