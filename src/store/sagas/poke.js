@@ -1,10 +1,23 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import * as actionsPoke from '../actions/poke';
-import api from '../../services';
+import api, { urlApi } from '../../services';
 // import configuration api
+
+function* loadEachPokes(pokes) {
+  const allPokes = yield all(
+    pokes.map(function* poke(val) {
+      const response = yield call(api.get, val.url);
+      return response.data;
+    })
+  );
+  return allPokes;
+}
+
 function* setPokesList() {
-  const response = yield call(api.get, '/1');
-  yield put(actionsPoke.setPokeList(response.data));
+  const response = yield call(api.get, urlApi);
+  const allPokes = yield loadEachPokes(response.data.results);
+
+  yield put(actionsPoke.setPokeList(allPokes));
 }
 
 export default all([takeLatest(actionsPoke.REQUEST_LIST_POKES, setPokesList)]);

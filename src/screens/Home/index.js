@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Container, Grid, Typography } from '@material-ui/core';
+import { Page } from './styles';
 import { pokeRequestList } from '../../store/actions/poke';
+import { Content } from '../../styles/global';
+import CardBox from '../../components/CardBox';
 
 class Home extends Component {
   componentDidMount = () => {
@@ -10,7 +13,26 @@ class Home extends Component {
   };
 
   render() {
-    return <h1>HomePage</h1>;
+    const { pokeList } = this.props;
+    return (
+      <Page>
+        <Content>
+          <Container>
+            <Typography gutterBottom variant="h5" component="h2">
+              List of Pokemons, select the favorite and learn more about it.
+            </Typography>
+            <Grid container spacing={3}>
+              {pokeList &&
+                pokeList.map(poke => (
+                  <Grid key={poke.id} item xs={12} sm={4} md={3}>
+                    <CardBox poke={poke} />
+                  </Grid>
+                ))}
+            </Grid>
+          </Container>
+        </Content>
+      </Page>
+    );
   }
 }
 
@@ -23,10 +45,6 @@ const mapStateToProps = state => {
   return {
     pokeList: state.pokeReducer.pokeList,
   };
-};
-
-Home.propTypes = {
-  loadPokes: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

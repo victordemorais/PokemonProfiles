@@ -10,7 +10,6 @@ const pokeReducer = (state = initialState, action) => {
         loading: true,
       };
     case actionsPoke.SET_LIST_POKES:
-      console.log('chegou aqui?', state, action);
       return {
         ...state,
         loading: false,

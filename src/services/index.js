@@ -1,9 +1,7 @@
 import Axios from 'axios';
 
-const urlApi = 'https://pokeapi.co/api/v2/pokemon';
+export const urlApi = 'https://pokeapi.co/api/v2/pokemon';
 
-const api = Axios.create({
-  baseURL: urlApi,
-});
+const api = Axios.create();
 
 export default api;
